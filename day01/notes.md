@@ -1,0 +1,1 @@
+Simple problem to start off. The only thing that really threw me off was not looking at the input closely enough and not realizing that the instructions could have rotations over a 100. But a quick fix later, I had my answer
