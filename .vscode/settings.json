@@ -88,5 +88,8 @@
     "thread": "cpp",
     "typeindex": "cpp",
     "queue": "cpp"
-  }
+  },
+  "rust-analyzer.linkedProjects": [
+    "day01/rust/Cargo.toml"
+  ]
 }
