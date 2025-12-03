@@ -90,6 +90,7 @@
     "queue": "cpp"
   },
   "rust-analyzer.linkedProjects": [
-    "day01/rust/Cargo.toml"
+    "day01/rust/Cargo.toml",
+    "day02/rust/Cargo.toml"
   ]
 }

@@ -23,7 +23,7 @@ push:
 	@git pull
 	@git add .
 ifeq ($(PART),)
-	@git commit -am "Completed day ${DAY}"
+	@git commit -am "Completed Day ${DAY}"
 else
 	@git commit -am "Completed day ${DAY} part $(PART)"
 endif
