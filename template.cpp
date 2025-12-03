@@ -29,6 +29,10 @@ bool isNumber(char c) {
   return c >= '0' && c <= '9';
 }
 
+void print(int stuff) {
+  cout << stuff << endl;
+}
+
 void print(string stuff) {
   cout << stuff << endl;
 }
