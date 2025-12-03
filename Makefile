@@ -18,6 +18,10 @@ endif
 
 create-rust:
 	@cd day${DAY} && cargo new rust
+	@cp template.rs day${DAY}/rust//src/main.rs
+
+rust-run:
+	@cd day${DAY}/rust && cargo run
 
 2:
 	@cp day${DAY}/part1/*.cpp day${DAY}/part2/
