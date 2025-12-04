@@ -92,6 +92,7 @@
   "rust-analyzer.linkedProjects": [
     "day01/rust/Cargo.toml",
     "day02/rust/Cargo.toml",
-    "day03/rust/Cargo.toml"
+    "day03/rust/Cargo.toml",
+    "day04/rust/Cargo.toml"
   ]
 }
