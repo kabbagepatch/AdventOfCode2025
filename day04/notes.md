@@ -1,0 +1,1 @@
+Pretty simple problem. All I had to do was, one, count the neighbors of each roll, something we've done in Advent of Code plenty of times, so I was able to borrow code from old problems. Then I just had to keep doing it and remove the rolls we can until there's no more we can remove anymore

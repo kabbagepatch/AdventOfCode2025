@@ -4,14 +4,6 @@
 #include <vector>
 using namespace std;
 
-struct coords {
-  int r;
-  int c;
-  bool operator==(const coords& other) const {
-    return r == other.r && c == other.c;
-  }
-};
-
 vector<string> split(string s, string delimiter) {
   vector<string> results;
   size_t pos = 0;
@@ -35,10 +27,6 @@ void print(int stuff) {
 
 void print(string stuff) {
   cout << stuff << endl;
-}
-
-void print(coords stuff) {
-  cout << stuff.c << ", " << stuff.r << endl;
 }
 
 void print(vector<string> stuff) {
