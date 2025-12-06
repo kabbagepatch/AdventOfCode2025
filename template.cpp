@@ -34,7 +34,6 @@ void print(vector<string> stuff) {
     cout << t << endl;
   }
   cout << endl;
-  cout << endl;
 }
 
 int main () {
