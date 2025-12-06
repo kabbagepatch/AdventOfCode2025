@@ -32,9 +32,9 @@ int main () {
   }
   myfile.close();
 
-  int n_numbers = lines.size() - 1;
+  int n_number_lines = lines.size() - 1;
   long total = 0;
-  string operator_line = lines[n_numbers];
+  string operator_line = lines[n_number_lines];
   char cur_operator;
   vector<string> number_strings;
   for (int i = 0; i < operator_line.size(); i += 1) {
@@ -42,7 +42,7 @@ int main () {
       cur_operator = operator_line[i];
     }
     string number_string;
-    for (int l = 0; l < n_numbers; l += 1) {
+    for (int l = 0; l < n_number_lines; l += 1) {
       if (lines[l][i] != ' ') {
         number_string.push_back(lines[l][i]);
       }
