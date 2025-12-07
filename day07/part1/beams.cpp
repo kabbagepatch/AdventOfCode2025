@@ -21,7 +21,7 @@ bool isNumber(char c) {
   return c >= '0' && c <= '9';
 }
 
-void print(long stuff) {
+void print(int stuff) {
   cout << stuff << endl;
 }
 
@@ -38,7 +38,7 @@ void print(vector<string> stuff) {
 
 int main () {
   ifstream myfile;
-  myfile.open ("../testinput");
+  myfile.open ("../input");
   vector<string> lines;
   if (myfile.is_open()) {
     string line_string;
@@ -48,5 +48,23 @@ int main () {
   }
   myfile.close();
 
-  print(lines);
+  int n_splits = 0;
+  for (int i = 1; i < lines.size(); i += 1) {
+    for (int j = 0; j < lines[0].size(); j += 1) {
+      char cur = lines[i][j];
+      char above = lines[i - 1][j];
+      if (cur == '.') {
+        if (above == 'S' || above == '|') {
+          lines[i][j] = '|';
+        }
+      } else if (cur == '^') {
+        if (above == '|') {
+          n_splits += 1;
+          lines[i][j - 1] = '|';
+          lines[i][j + 1] = '|';
+        }
+      }
+    }
+  }
+  print(n_splits);
 }
