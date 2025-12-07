@@ -4,23 +4,6 @@
 #include <vector>
 using namespace std;
 
-vector<string> split(string s, string delimiter) {
-  vector<string> results;
-  size_t pos = 0;
-  string token;
-  while ((pos = s.find(delimiter)) != string::npos) {
-      token = s.substr(0, pos);
-      results.push_back(token);
-      s.erase(0, pos + delimiter.length());
-  }
-  results.push_back(s);
-  return results;
-}
-
-bool isNumber(char c) {
-  return c >= '0' && c <= '9';
-}
-
 void print(long stuff) {
   cout << stuff << endl;
 }

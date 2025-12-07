@@ -95,8 +95,8 @@
     "day03/rust/Cargo.toml",
     "day04/rust/Cargo.toml",
     "day05/rust/Cargo.toml",
-    "day06/rust/Cargo.toml"
-    // "day07/rust/Cargo.toml"
+    "day06/rust/Cargo.toml",
+    "day07/rust/Cargo.toml"
     // "day08/rust/Cargo.toml"
     // "day09/rust/Cargo.toml"
     // "day10/rust/Cargo.toml"
