@@ -3,7 +3,7 @@ DAY=$(shell date +%d)
 update-tasks:
 	@./update.sh ${DAY}
 
-create:
+create-cpp:
 	@mkdir day${DAY}
 	@touch day${DAY}/testinput
 	@touch day${DAY}/input
@@ -17,14 +17,24 @@ else
 endif
 
 create-rust:
-	@cd day${DAY} && cargo new rust
-	@cp template.rs day${DAY}/rust//src/main.rs
+	cargo new day${DAY}
+	@mkdir day${DAY}/src/bin
+	@cp template.rs day${DAY}/src/bin/part1.rs
+	@touch day${DAY}/src/testinput
+	@touch day${DAY}/src/input
+	@touch day${DAY}/notes.md
 
 rust-run:
-	@cd day${DAY}/rust && cargo run
+	@echo "Part 1"
+	@cd day${DAY} && cargo run --bin part1 --quiet
+	@echo "Part 2"
+	@cd day${DAY} && cargo run --bin part2 --quiet
 
-2:
+2-cpp:
 	@cp day${DAY}/part1/*.cpp day${DAY}/part2/
+
+2-rust:
+	@cp day${DAY}/src/bin/part1.rs day${DAY}/src/bin/part2.rs
 
 push:
 	@git pull
@@ -34,10 +44,4 @@ ifeq ($(PART),)
 else
 	@git commit -am "Completed day ${DAY} part $(PART)"
 endif
-	@git push
-
-push-rust:
-	@git pull
-	@git add .
-	@git commit -am "Added Rust version of ${DAY}"
 	@git push
