@@ -8,17 +8,21 @@ fn get_distance(p1: &(u32, u32 , u32), p2: &(u32, u32, u32)) -> u64  {
 }
 
 fn get_coordinates(p: &str) -> (u32, u32, u32) {
-    let split_p: Vec<u32> = p.split(',').map(|c| c.parse::<u32>().expect("invalid")).collect();
+    let mut split_p = p.split(',').map(|c| c.parse::<u32>().expect("invalid"));
 
-    (split_p[0], split_p[1], split_p[2])
+    (
+        split_p.next().unwrap(),
+        split_p.next().unwrap(),
+        split_p.next().unwrap(),
+    )
 }
 
-fn get_box_pair_key(i: usize, j: usize) -> usize {
-    i * 1000 + j
+fn get_box_pair_key(i: usize, j: usize, n_boxes: usize) -> usize {
+    i * n_boxes + j
 }
 
-fn get_box_pair_from_key(key: usize) -> (usize, usize) {
-    (key / 1000, key % 1000)
+fn get_box_pair_from_key(key: usize, n_boxes: usize) -> (usize, usize) {
+    (key / n_boxes, key % n_boxes)
 }
 
 fn main() {
@@ -28,15 +32,12 @@ fn main() {
     let n_boxes = boxes.len();
     let mut distances: Vec<(usize, u64)> = vec![(0, 0); n_boxes * n_boxes];
     let mut circuit_maps: Vec<usize> = (0..n_boxes).collect(); 
-    let mut circuits: Vec<Vec<usize>> = vec![Vec::new(); n_boxes];
-    for i in 0..n_boxes {
-        circuits[i].push(i);
-    }
+    let mut circuits: Vec<Vec<usize>> = (0..n_boxes).map(|i| vec![i]).collect();
 
     for (i, b1) in boxes.iter().enumerate() {
         for (j, b2) in boxes.iter().enumerate() {
-            let key = get_box_pair_key(i, j);
-            let inverse_key = get_box_pair_key(j, i);
+            let key = get_box_pair_key(i, j, n_boxes);
+            let inverse_key = get_box_pair_key(j, i, n_boxes);
             if i == j || distances[inverse_key].1 != 0 {
                 distances[key] = (key, u64::MAX);
                 continue;
@@ -53,7 +54,7 @@ fn main() {
         if l >= distances.len() {
             break (0, 0);
         }
-        let (i, j) = get_box_pair_from_key(key);
+        let (i, j) = get_box_pair_from_key(key, n_boxes);
         let i_circuit = circuit_maps[i];
         let j_circuit = circuit_maps[j];
         if i_circuit == j_circuit { // new circuit
