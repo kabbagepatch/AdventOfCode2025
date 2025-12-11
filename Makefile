@@ -3,6 +3,9 @@ DAY=$(shell date +%d)
 update-tasks:
 	@./update.sh ${DAY}
 
+complete-tasks:
+	@./complete.sh ${DAY}
+
 create-cpp:
 	@mkdir day${DAY}
 	@touch day${DAY}/testinput
