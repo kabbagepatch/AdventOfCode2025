@@ -17,3 +17,5 @@ If A, B, C... F were the final button presses needed, we can formulate the probl
 ```
 
 That's about as far as I got. Initially I thought a matrix inverse could give me the answer but then I remembered only square matrices have inverses. But at least I have a system at the moment
+
+The other possibilities could be a greedy algorithm or some sort of A* search that doesn't explore ALL paths like a BFS

@@ -1,0 +1,9 @@
+A graph problem. It was only a matter of time. Nothing a little recursion can't deal with, along with some memoization to make things a bit more optimized. Firstly, so I can avoid dealing with strings, given we had 3-character node labels, I made a struct for the Node that converted the string to a 32-bit integer. Learned how to "implement" things like Display and Debug in Rust. Then I made the graph from the input.
+
+For part 1, I created a function to get the number of paths to the goal from any node, that recursively calls itself on the next nodes until it reaches the goal. The base case was the goal itself. And I added a HashMap to keep track of visited nodes
+
+For part 2, it was the same problem but extended. I had to find all paths from svr to `out` but ones that included two checkpoints, fft and dac. Firstly I realised the code was running too slow. It wasn't returning the total number of paths to `out`, so I knew there were optimizations I was missing. But I couldn't figure them out. It felt like there wasn't a way I could prune the nodes early enough before they actually reached `out` because in theory, until it reaches `out`, any node could go through the checkpoints first.
+
+So I started debugging. I wanted to see what paths it hit. And that's where I realized that it WAS going down the same paths over and over. It wasn't supposed to. And it hit me. I implemented the cache, and checked for it, and even used it on the base cases. But I never used it in general. The line `n_paths_to_goal.insert(from, n_paths);` was missing. The facepalm. When I added that, I got the total number of paths
+
+Then it was a matter of realizing that the way to find the paths I need is to find the paths from `svr -> fft`, `fft -> dac` and `dac -> out` (I found that there were no paths from `dac -> fft` so that case didn't matter). And then just multiply them together
