@@ -8,7 +8,7 @@ use std::collections::{HashSet, VecDeque};
 // }
 
 fn main() {
-    let input = read_to_string("src/input").unwrap();
+    let input = read_to_string("src/testinput").unwrap();
     let mut total_steps= 0;
 
     for line in input.lines() {

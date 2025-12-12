@@ -100,6 +100,7 @@
     "day08/Cargo.toml",
     "day09/Cargo.toml",
     "day10/Cargo.toml",
-    "day11/Cargo.toml"
+    "day11/Cargo.toml",
+    "day12/Cargo.toml"
   ]
 }

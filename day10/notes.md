@@ -19,3 +19,9 @@ If A, B, C... F were the final button presses needed, we can formulate the probl
 That's about as far as I got. Initially I thought a matrix inverse could give me the answer but then I remembered only square matrices have inverses. But at least I have a system at the moment
 
 The other possibilities could be a greedy algorithm or some sort of A* search that doesn't explore ALL paths like a BFS
+
+-----
+
+I finally solved Part 2. Mostly. Thanks to [this](https://www.reddit.com/r/adventofcode/comments/1pk87hl/2025_day_10_part_2_bifurcate_your_way_to_victory/) explanation on reddit, I came up with a new algorithm for part 2. It involved parities and finding all the button combos and more recursion and caching. It got a bit more complicated than I wanted. It worked for about 99% of the inputs. Sadly, not a 100%. And after spending so many hours on it, I didn't want to spend anymore. 
+
+I tried looking for solutons online to help debug mine and compare. Somehow, even the solution of the guy who wrote the explanation didn't work for me. In fact, his code (not_mine.py) gave me more wrong answers. Perhaps he just got lucky with his input. So I found another (not_mine.rs) one and finally got my final answer.
